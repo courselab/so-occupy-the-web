@@ -1,0 +1,4 @@
+!#/bin/bash
+
+make hello.bin
+make hello.bin/run
