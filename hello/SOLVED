@@ -1,8 +1,0 @@
-@Aluno: Vinicius Mari Marrafon
-@Disciplina: Sistemas Operacionais (Pós-graduação)
-
-O que foi feito?
-R: Neste projeto, foi implementado uma função printp (print pixel) no qual recebe como argumento as coordenadas (x,y) da tela junto com a coloração do pixel que será "imprimido" na tela
-
-Como foi feito?
-R: O arquivo libc.S contém dois labels representando as funções necessárias para o correto funcionamento da função printp. São elas: set_video_mode, printp. A primeira destas "seta" o modo de escrita da BIOS em modo de vídeo, o que, por exemplo, nos permite escrever pixels na tela. A printp é a função que escreve o pixel DEPOIS QUE O MODO DE VÍDEO FOR "SETADO". Ela recebe 3 argumentos, como supracitado. Com o atributo fastcall, os primeiros dois argumentos são enviados via registrados %bx e %cx. Mais argumentos são enviados via stack, mas não apenas isso. O ponteiro de retorno também é enviado via stack! com o tamanho de 2 Bytes (16-bits), por isso a leitura do 3º argumento é feita da 6 posição da pilha.
